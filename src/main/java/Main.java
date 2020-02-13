@@ -8,8 +8,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         UserCredential uc = UserInteraction.getCredentialsFromUser();
         Connection c = null;
+        System.out.println("Ce server de baza de date vrei?");
+        String serverType = scanner.nextLine();
         try {
-            c = DriverManager.getConnection("jdbc:mysql://" + uc.ip + ":" + uc.port +
+            c = DriverManager.getConnection("jdbc:" + serverType + "://" + uc.ip + ":" + uc.port +
                             "/" + uc.database,
                     uc.user,
                     uc.password);
